@@ -15,18 +15,18 @@
    cd authorization_phone
    ```
 3. Создайте файл .env:
- ```
- DEBUG=FALSE
- SECRET_KEY=...
- ALLOWED_HOSTS=localhost 127.0.0.1 ... ...
+   ```
+   DEBUG=FALSE
+   SECRET_KEY=...
+   ALLOWED_HOSTS=localhost 127.0.0.1 ... ...
 
- POSTGRES_USER=django_user
- POSTGRES_PASSWORD=mysecretpassword
- POSTGRES_DB=django
- DB_HOST=db
- DB_PORT=5432
- DB_NAME=name
- ```
+   POSTGRES_USER=django_user
+   POSTGRES_PASSWORD=mysecretpassword
+   POSTGRES_DB=django
+   DB_HOST=db
+   DB_PORT=5432
+   DB_NAME=name
+   ```
 4. Запустите проект в контейнерах:
    ```
    sudo docker compose up
