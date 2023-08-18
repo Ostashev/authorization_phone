@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Профиль пользователя</title>
+</head>
+<body>
+    <h1>Профиль пользователя</h1>
+    <h2>Информация о пользователе</h2>
+    <p>Номер телефона: {{ user_profile.phone_number }}</p>
+    <p>Пригласительный код: {{ user_profile.invite_code }}</p>
+    <p>Активированный код: {{ user_profile.activated_invite_code }}</p>
+    
+    {% if invite_codes %}
+        <h2>Приглашенные пользователи:</h2>
+        <ul>
+            {% for invite_code in invite_codes %}
+                <li>{{ invite_code.phone_number }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Нет приглашенных пользователей.</p>
+    {% endif %}
+
+    <h2>Активация пригласительного кода</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="invite_code">Пригласительный код:</label>
+        <input type="text" id="invite_code" name="invite_code" required>
+        <br>
+        <button type="submit">Активировать код</button>
+    </form>
+    {% if response_message %}
+        <p>{{ response_message }}</p>
+    {% endif %}
+</body>
+</html>

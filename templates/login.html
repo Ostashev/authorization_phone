@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Проверка кода</title>
+</head>
+<body>
+    <h1>Проверка кода</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="phone_number">Номер телефона:</label>
+        <input type="text" id="phone_number" name="phone_number" required>
+        <br>
+        <label for="verification_code">Код верификации:</label>
+        <input type="text" id="verification_code" name="verification_code" required>
+        <br>
+        <button type="submit">Проверить</button>
+    </form>
+
+    {% if response_message %}
+    <p>{{ response_message }}</p>
+    {% endif %}
+
+    <a
+     href="{% url 'users:user_profile' %}"> 
+     <button type="submit">Профайл</button> 
+    </a>
+</body>
+</html>
